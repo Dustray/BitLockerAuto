@@ -18,7 +18,7 @@ namespace BitlockerCore.Encryptions
         public byte[] AesEncrypt(string str, string key)
         {
             if (string.IsNullOrEmpty(str)) return null;
-            Byte[] toEncryptArray = Encoding.UTF8.GetBytes(str);
+            byte[] toEncryptArray = Encoding.UTF8.GetBytes(str);
 
             RijndaelManaged rm = new RijndaelManaged
             {
@@ -29,7 +29,7 @@ namespace BitlockerCore.Encryptions
 
             ICryptoTransform cTransform = rm.CreateEncryptor();
             Byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
-            return resultArray; 
+            return resultArray;
         }
 
         /// <summary>
@@ -50,8 +50,15 @@ namespace BitlockerCore.Encryptions
             };
 
             ICryptoTransform cTransform = rm.CreateDecryptor();
-            Byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
-
+            Byte[] resultArray;
+            try
+            {
+                resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+            }
+            catch
+            {
+                return "";
+            }
             return Encoding.UTF8.GetString(resultArray);
         }
     }

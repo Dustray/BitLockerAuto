@@ -109,5 +109,11 @@
   <ItemGroup>
     <Folder Include="ConfigFile\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitlockerCore\BitlockerCore.csproj">
+      <Project>{ab635ca2-2305-46e6-8aac-1fab7ebc113d}</Project>
+      <Name>BitlockerCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

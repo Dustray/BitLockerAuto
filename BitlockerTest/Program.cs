@@ -41,7 +41,7 @@ namespace BitlockerTest
             var aes = new AESUtils();
             var afterAESStr = aes.AesDecrypt(byteFile, key);
 
-            Console.WriteLine("解密："+afterAESStr);
+            Console.WriteLine("解密：" + afterAESStr);
 
         }
     }

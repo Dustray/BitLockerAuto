@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BitlockerCore;
+using BitlockerCore.Encryptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +21,9 @@ namespace BitLockerUI
     /// </summary>
     public partial class UnlockWindow : BaseWindow
     {
-        private static string _driveNumber;
+        private string _driveNumber;
+        //private const string key = "ahs75jg8skbjg837dhfi98ujg5f4dpla";
+        private const string key = "12345678876543211234567887654abc";
         public UnlockWindow(string driveNumber)
         {
             InitializeComponent();
@@ -27,5 +31,32 @@ namespace BitLockerUI
             lblDeviceNumber.Content = $"解锁（{ driveNumber}）";
         }
 
+        private void BtnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            var recoveryFileStream = new RecoveryFileStream();
+            var byteFile = recoveryFileStream.Read(@".\Data\bitlockerauto.rp");
+            if (0 == byteFile.Length)
+            {
+                MessageBox.Show("未找到用户密钥文件");
+                return;
+            }
+            var aes = new AESUtils();
+            var afterAESStr = aes.AesDecrypt(byteFile, key);
+            if (string.IsNullOrEmpty(afterAESStr))
+            {
+
+                MessageBox.Show("密钥文件解析失败");
+                return;
+            }
+            var bl = new BitLockerExecute(_driveNumber[0].ToString());
+            if (!bl.Unlock(afterAESStr))
+            {
+                MessageBox.Show("密钥文件错误");
+                return;
+            }
+
+            // bl.Lock();
+            Close();
+        }
     }
 }

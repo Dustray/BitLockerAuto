@@ -18,6 +18,6 @@
         <Label  Content="输入密码以解锁" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"   Margin="5,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12"/>
 
         <PasswordBox Name="tboxPassword" Grid.Row="2" VerticalAlignment="Center" Height="30" Margin="10 0 10 0" BorderThickness="2" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalContentAlignment="Center"/>
-        <Button Name="btnSubmit" Content="提 交" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="70" Height="30" Margin="10" BorderThickness="0" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontSize="16" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+        <Button Name="btnSubmit" Content="提 交" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="70" Height="30" Margin="10" BorderThickness="0" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontSize="16" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Click="BtnSubmit_Click" />
     </Grid>
 </local:BaseWindow>

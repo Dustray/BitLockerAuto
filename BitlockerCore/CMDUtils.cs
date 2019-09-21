@@ -10,7 +10,7 @@ namespace BitlockerCore
     {
         System.Diagnostics.Process process;
 
-        public CMDUtils(bool noWindow = false)
+        public CMDUtils(bool noWindow = true)
         {
             process = new System.Diagnostics.Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -28,7 +28,7 @@ namespace BitlockerCore
             process.StandardInput.AutoFlush = true;
             string output = process.StandardOutput.ReadToEnd();
             string error = process.StandardError.ReadToEnd();
-            Console.WriteLine("CMD输出> " + output +"\n"+ error);
+            Console.WriteLine("CMD输出> " + output + "\n" + error);
             process.WaitForExit();
             if (string.IsNullOrEmpty(error))
             {
@@ -40,7 +40,7 @@ namespace BitlockerCore
             }
         }
 
-        public  string[] RunCmd(string cmd, string args, string workdir = null)
+        public string[] RunCmd(string cmd, string args, string workdir = null)
         {
             var res = new string[2];
             var p = CreateCmdProcess(cmd, args, workdir);
@@ -50,7 +50,7 @@ namespace BitlockerCore
             return res;
         }
 
-        public  System.Diagnostics.Process CreateCmdProcess(string cmd, string args, string workdir = null)
+        public System.Diagnostics.Process CreateCmdProcess(string cmd, string args, string workdir = null)
         {
             var pStartInfo = new System.Diagnostics.ProcessStartInfo(cmd);
             pStartInfo.Arguments = args;

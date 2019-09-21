@@ -31,3 +31,6 @@ Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.GenerateRes
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.CoreCompileInputs.cache
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.exe
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.pdb
+Z:\DevProject\BitLockerAuto\BitLockerUI\bin\Debug\BitlockerCore.dll
+Z:\DevProject\BitLockerAuto\BitLockerUI\bin\Debug\BitlockerCore.pdb
+Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.CopyComplete
