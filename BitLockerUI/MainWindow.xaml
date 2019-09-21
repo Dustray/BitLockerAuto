@@ -1,0 +1,28 @@
+﻿<local:BaseWindow x:Class="BitLockerUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BitLockerUI"
+        mc:Ignorable="d"
+        Title="BitLocker Auto" Height="450" Width="500"  MinHeight="450" MinWidth="500">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Width="auto"  Background="AliceBlue" Height="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="驱动器:" VerticalAlignment="Center" Height="25" Margin="5 0"/>
+            <ComboBox Grid.Column="1" Name="cBoxDriveList" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5 0" Width="200" Height="25" SelectionChanged="ComboBox_SelectionChanged" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" VerticalContentAlignment="Center"  />
+            <Button Grid.Column="2" Name="btnChangeDriveLockState" Content="解 锁" Width="60" Margin="5 0" Height="25" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Click="BtnChangeDriveLockState_Click" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+        </Grid>
+        <Grid>
+            
+        </Grid>
+    </Grid>
+</local:BaseWindow>
