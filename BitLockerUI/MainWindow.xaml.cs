@@ -46,7 +46,7 @@ namespace BitLockerUI
                 }
                 else
                 {
-                    label = $"^已锁定驱动器 ({label})";
+                    label = $"^加密驱动器 ({label})";
                 }
                 driveArray[i] = label;
             }
@@ -64,9 +64,39 @@ namespace BitLockerUI
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var index = cBoxDriveList.SelectedIndex;
-
-            btnChangeDriveLockState.IsEnabled = !_driveList[index].IsReady;
-
+            var drive = _driveList[index];
+            btnChangeDriveLockState.IsEnabled = !drive.IsReady;
+            lblDriveName.Content = string.IsNullOrEmpty(drive.Name) ? "^加密驱动器" : drive.Name;
+            lblDriveNumber.Content = $"({drive.Number})";
+            lblLockState.Content = drive.IsReady ? "BitLocker未加密或已解锁" : "BitLocker已加密";
+            SetDriveSizeInfo(drive.TotalSize, drive.FreeSize);
         }
+
+        public void SetDriveSizeInfo(long totalSize, long freeSize)
+        {
+            var usingSize = totalSize - freeSize;
+            var sizePercent = (int)((double)usingSize / totalSize * 100);
+            lblDriveTotalSizeByte.Content = totalSize + "字节";
+            lblDriveTotalSizeGB.Content = Math.Round((float)totalSize / 1024 / 1024 / 1024, 1) + "GB";
+            lblDriveUsingSizeByte.Content = usingSize + "字节";
+            lblDriveUsingSizeGB.Content = Math.Round((float)usingSize / 1024 / 1024 / 1024, 1) + "GB";
+            lblDriveFreeSizeByte.Content = freeSize + "字节";
+            lblDriveFreeSizeGB.Content = Math.Round((float)freeSize / 1024 / 1024 / 1024, 1) + "GB";
+            pbarDriveSize.Value = sizePercent;
+        }
+
+        private void BaseWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            var index = cBoxDriveList.SelectedIndex;
+            if (e.Key == Key.Left)
+            {
+                cBoxDriveList.SelectedIndex = index == 0 ? _driveList.Count - 1 : index - 1;
+            }
+            else if (e.Key == Key.Right)
+            {
+                cBoxDriveList.SelectedIndex = index == _driveList.Count - 1 ? 0 : index + 1;
+            }
+        }
+
     }
 }

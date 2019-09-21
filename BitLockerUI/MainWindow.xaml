@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitLockerUI"
         mc:Ignorable="d"
-        Title="BitLocker Auto" Height="450" Width="500"  MinHeight="450" MinWidth="500" Icon="pack://siteoforigin:,,,/Resources/icon.ico">
+        Title="BitLocker Auto" Height="450" Width="500"  MinHeight="450" MinWidth="500" Icon="pack://siteoforigin:,,,/Resources/icon.ico" KeyDown="BaseWindow_KeyDown">
     <Grid>
         <Grid.RowDefinitions >
             <RowDefinition Height="50"></RowDefinition>
@@ -22,7 +22,52 @@
             <Button Grid.Column="2" Name="btnChangeDriveLockState" Content="解 锁" Width="60" Margin="5 0" Height="25" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Click="BtnChangeDriveLockState_Click" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
         </Grid>
         <Grid Grid.Row="1">
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Label Name="lblDriveName"   Content="Windows 10" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" FontSize="20" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                <Label Name="lblDriveNumber"  Content="( C:/ )" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" FontSize="20" />
+            </StackPanel>
+            <Label Name="lblLockState" Content="BitLocker未加密" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+            <Border Grid.Row="1" Margin="20 0" BorderThickness="1" Height="1" VerticalAlignment="Top" BorderBrush="LightGray"/>
+            <Grid  Grid.Row="1" Margin="0 5 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="0"  Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label Content="总空间："/>
+                </StackPanel>
+                <Label Name="lblDriveTotalSizeByte" Content="43144325523564字节" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center"/>
+                <Label Name="lblDriveTotalSizeGB"  Content="237GB" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1"  Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Rectangle Width="15" Height="15" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                    <Label Content="已用空间："/>
+                </StackPanel>
+                <Label Name="lblDriveUsingSizeByte" Content="12385798374298字节" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center"/>
+                <Label Name="lblDriveUsingSizeGB"  Content="120GB" Grid.Row="1" Grid.Column="2"  HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2"  Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Rectangle Width="15" Height="15" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Stroke="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+                    <Label Content="可用空间："/>
+                </StackPanel>
+                <Label Name="lblDriveFreeSizeByte" Content="117145893278595字节" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center"/>
+                <Label Name="lblDriveFreeSizeGB"  Content="117GB" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center"/>
+
+                <ProgressBar Name="pbarDriveSize" Grid.Row="3" Grid.ColumnSpan="4" Margin="20 0" Height="15" Value="53" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+            </Grid>
         </Grid>
     </Grid>
 </local:BaseWindow>
