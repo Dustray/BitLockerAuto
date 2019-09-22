@@ -56,6 +56,7 @@ namespace BitLockerUI
             cBoxDriveList.ItemsSource = driveArray;
             cBoxDriveList.SelectedIndex = index;
         }
+        #region 交互事件
         private void BtnChangeDriveLockState_Click(object sender, RoutedEventArgs e)
         {
             var driveNumber = _driveList[cBoxDriveList.SelectedIndex].Number;
@@ -101,7 +102,31 @@ namespace BitLockerUI
             cBoxDriveList.Focusable = false;
 
         }
-
+        private void BaseWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            var index = cBoxDriveList.SelectedIndex;
+            if (e.Key == Key.Left)
+            {
+                cBoxDriveList.SelectedIndex = index == 0 ? _driveList.Count - 1 : index - 1;
+            }
+            else if (e.Key == Key.Right)
+            {
+                cBoxDriveList.SelectedIndex = index == _driveList.Count - 1 ? 0 : index + 1;
+            }
+        }
+        private void BaseWindow_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var index = cBoxDriveList.SelectedIndex - e.Delta / 120;
+            if (index < 0)
+            {
+                index = _driveList.Count - 1;
+            }
+            else if (index > _driveList.Count - 1)
+            {
+                index = 0;
+            }
+            cBoxDriveList.SelectedIndex = index;
+        }
         public void SetDriveSizeInfo(long totalSize, long freeSize)
         {
             var usingSize = totalSize - freeSize;
@@ -115,31 +140,6 @@ namespace BitLockerUI
             pbarDriveSize.Value = sizePercent;
         }
 
-        private void BaseWindow_KeyDown(object sender, KeyEventArgs e)
-        {
-            var index = cBoxDriveList.SelectedIndex;
-            if (e.Key == Key.Left)
-            {
-                cBoxDriveList.SelectedIndex = index == 0 ? _driveList.Count - 1 : index - 1;
-            }
-            else if (e.Key == Key.Right)
-            {
-                cBoxDriveList.SelectedIndex = index == _driveList.Count - 1 ? 0 : index + 1;
-            }
-        }
-
-
-        #region Callback
-        private void OnUnlockWindowClose()
-        {
-            InitDriveList(cBoxDriveList.SelectedIndex);
-        }
-        #endregion
-
-        private void BtnTest_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
         private void ChangeDriveSizeLabelEnable(bool enable)
         {
             lblDriveTotalSizeByte.IsEnabled = enable;
@@ -150,19 +150,22 @@ namespace BitLockerUI
             lblDriveFreeSizeGB.IsEnabled = enable;
         }
 
-        private void BaseWindow_MouseWheel(object sender, MouseWheelEventArgs e)
+        private void BtnTest_Click(object sender, RoutedEventArgs e)
         {
-            var index = cBoxDriveList.SelectedIndex - e.Delta/120;
-            if (index < 0)
-            {
-                index = _driveList.Count - 1;
-            }
-            else if (index > _driveList.Count - 1)
-            {
-                index = 0;
-            }
-            cBoxDriveList.SelectedIndex = index;
+
         }
+        #endregion
+
+        #region Callback
+        private void OnUnlockWindowClose()
+        {
+            InitDriveList(cBoxDriveList.SelectedIndex);
+        }
+        #endregion
+
+
+
+
 
     }
 }
