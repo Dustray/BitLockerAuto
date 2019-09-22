@@ -17,7 +17,7 @@ namespace BitLockerUI
     /// <summary>
     /// CreateEncryptionFileWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class CreateEncryptionFileWindow : Window
+    public partial class CreateEncryptionFileWindow : BaseWindow
     {
         public CreateEncryptionFileWindow()
         {

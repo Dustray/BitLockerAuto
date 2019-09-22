@@ -1,12 +1,53 @@
-﻿<Window x:Class="BitLockerUI.CreateEncryptionFileWindow"
+﻿<local:BaseWindow x:Class="BitLockerUI.CreateEncryptionFileWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitLockerUI"
         mc:Ignorable="d"
-        Title="CreateEncryptionFileWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="生成密钥文件" Height="200" Width="600" ResizeMode="NoResize">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Name="lblTitle" Content="正在为C盘生成密钥文件，请确认C盘已启用Bitlocker加密。" Grid.Row="0" VerticalAlignment="Center" FontSize="16" Margin="10 0"/>
+        <Grid Grid.Row="1" Margin="10 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Name="tboxCode0" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="1" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="2" Name="tboxCode1" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="3" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="4" Name="tboxCode2" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="5" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="6" Name="tboxCode3" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="7" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="8" Name="tboxCode4" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="9" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="10" Name="tboxCode5" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="11" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="12" Name="tboxCode6" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="13" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="14" Name="tboxCode7" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="15" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="16" Name="tboxCode8" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Grid>
     </Grid>
-</Window>
+    </local:BaseWindow>

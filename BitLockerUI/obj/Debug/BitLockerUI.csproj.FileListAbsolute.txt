@@ -38,3 +38,5 @@ Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.CoreCompile
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.CopyComplete
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.exe
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.pdb
+Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\CreateEncryptionFileWindow.g.cs
+Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\CreateEncryptionFileWindow.baml

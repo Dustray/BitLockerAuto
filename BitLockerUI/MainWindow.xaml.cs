@@ -161,11 +161,15 @@ namespace BitLockerUI
         {
             InitDriveList(cBoxDriveList.SelectedIndex);
         }
+
+
+
+
         #endregion
 
-
-
-
-
+        private void BtnLock_Click(object sender, RoutedEventArgs e)
+        {
+            new CreateEncryptionFileWindow().Show();
+        }
     }
 }

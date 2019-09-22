@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitLockerUI"
         mc:Ignorable="d"
-        Title="解锁" Height="250" Width="300">
+        Title="解锁" Height="250" Width="300" ResizeMode="NoResize">
     <Grid>
        
         <Grid.RowDefinitions>
