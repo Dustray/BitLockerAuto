@@ -30,7 +30,7 @@ namespace BitLockerUI
         private int[] _simplePassWord = new int[4];
         private PasswordBox[] _passwordBoxes  ;
         private int _simplePassWordIndex=0;
-        public UnlockWindow(Action onWindowCloseCallback, string driveNumber, bool simplePassword = true)
+        public UnlockWindow(Action onWindowCloseCallback, string driveNumber, bool simplePassword = false)
         {
             InitializeComponent();
             _onWindowCloseCallback = onWindowCloseCallback;
@@ -40,8 +40,11 @@ namespace BitLockerUI
             tboxPassword.Visibility = simplePassword ? Visibility.Collapsed : Visibility.Visible;
             btnSubmit.Visibility = simplePassword ? Visibility.Collapsed : Visibility.Visible;
             gridSimplePassword.Visibility = !simplePassword ? Visibility.Collapsed : Visibility.Visible;
-            if(simplePassword) _passwordBoxes = new PasswordBox[4] { lblPassword0,lblPassword1,lblPassword2,lblPassword3};
-            _passwordBoxes[0].Focus();
+            if (simplePassword)
+            {
+                _passwordBoxes = new PasswordBox[4] { lblPassword0, lblPassword1, lblPassword2, lblPassword3 };
+                _passwordBoxes[0].Focus();
+            }
         }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
@@ -72,7 +75,7 @@ namespace BitLockerUI
             var bl = new BitLockerExecute(_driveNumber[0].ToString());
             if (!bl.Unlock(afterAESStr))
             {
-                btnErrorHint.Content = "密钥文件错误";
+                btnErrorHint.Content = "加载了非此驱动器的密钥文件";
                 btnErrorHint.Visibility = Visibility.Visible;
                 ClearSimplePassword();
                 return;
@@ -125,14 +128,17 @@ namespace BitLockerUI
         }
         private void ClearSimplePassword()
         {
-            _simplePassWordIndex = 0;
-            for (int i = 0; i < 4; i++)
+            if (_isSimplePassword)
             {
-                _passwordBoxes[i].Focusable = false;
-                _passwordBoxes[i].Clear();
+                _simplePassWordIndex = 0;
+                for (int i = 0; i < 4; i++)
+                {
+                    _passwordBoxes[i].Focusable = false;
+                    _passwordBoxes[i].Clear();
+                }
+                _passwordBoxes[0].Focusable = true;
+                _passwordBoxes[0].Focus();
             }
-            _passwordBoxes[0].Focusable = true;
-            _passwordBoxes[0].Focus();
         }
        
     }
