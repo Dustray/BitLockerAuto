@@ -30,7 +30,7 @@ namespace BitLockerUI
         private int[] _simplePassWord = new int[4];
         private PasswordBox[] _passwordBoxes  ;
         private int _simplePassWordIndex=0;
-        public UnlockWindow(Action onWindowCloseCallback, string driveNumber, bool simplePassword = false)
+        public UnlockWindow(Action onWindowCloseCallback, string driveNumber, bool simplePassword = true)
         {
             InitializeComponent();
             _onWindowCloseCallback = onWindowCloseCallback;
