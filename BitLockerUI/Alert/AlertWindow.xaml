@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BitLockerUI.Alert"
         mc:Ignorable="d"
         Title="AlertWindow" Window.SizeToContent="Height" Width="500" Loaded="Window_Loaded" 
-        Background="{x:Null}" Visibility="Visible" AllowsTransparency="True" WindowStyle="None">
+        Background="{x:Null}" Visibility="Visible" AllowsTransparency="True" WindowStyle="None" MouseEnter="Window_MouseEnter" MouseLeave="Window_MouseLeave">
     <Border  Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Margin="20 0 20 20" CornerRadius="0 0 10 10">
         <Border.Effect>
             <DropShadowEffect BlurRadius="18" Color="#FFACACAC" Direction="270" ShadowDepth="3"/>

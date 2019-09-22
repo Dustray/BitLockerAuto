@@ -54,7 +54,7 @@
                     <Label Content="总空间："/>
                 </StackPanel>
                 <Label Name="lblDriveTotalSizeByte" Content="43144325523564字节" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center"/>
-                <Label Name="lblDriveTotalSizeGB"  Content="237GB" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center"/>
+                <Label Name="lblDriveTotalSizeGB"  Content="237GB" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Right" VerticalContentAlignment="Stretch" VerticalAlignment="Center" />
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1"  Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <Rectangle Width="15" Height="15" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>

@@ -163,5 +163,6 @@ namespace BitLockerUI
             }
             cBoxDriveList.SelectedIndex = index;
         }
+
     }
 }
