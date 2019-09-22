@@ -96,6 +96,7 @@ namespace BitLockerUI
             lblDriveName.Content = string.IsNullOrEmpty(drive.Name) ? "^加密驱动器" : drive.Name;
             lblDriveNumber.Content = $"({drive.Number})";
             lblLockState.Content = drive.IsReady ? "BitLocker未加密或已解锁" : "BitLocker已加锁";
+            ChangeDriveSizeLabelEnable(drive.IsReady);
             SetDriveSizeInfo(drive.TotalSize, drive.FreeSize);
             cBoxDriveList.Focusable = false;
 
@@ -138,6 +139,15 @@ namespace BitLockerUI
         private void BtnTest_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+        private void ChangeDriveSizeLabelEnable(bool enable)
+        {
+            lblDriveTotalSizeByte.IsEnabled = enable;
+            lblDriveTotalSizeGB.IsEnabled = enable;
+            lblDriveUsingSizeByte.IsEnabled = enable;
+            lblDriveUsingSizeGB.IsEnabled = enable;
+            lblDriveFreeSizeByte.IsEnabled = enable;
+            lblDriveFreeSizeGB.IsEnabled = enable;
         }
     }
 }

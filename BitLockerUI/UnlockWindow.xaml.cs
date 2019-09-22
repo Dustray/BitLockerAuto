@@ -60,7 +60,6 @@ namespace BitLockerUI
                 return;
             }
 
-            // bl.Lock();
             _onWindowCloseCallback();
             Close();
         }
