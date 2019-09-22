@@ -1,5 +1,6 @@
 ﻿using BitlockerCore;
 using BitlockerCore.Encryptions;
+using BitLockerUI.Alert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,21 +40,20 @@ namespace BitLockerUI
             var byteFile = recoveryFileStream.Read(@".\Data\bitlockerauto.rp");
             if (0 == byteFile.Length)
             {
-                MessageBox.Show("未找到用户密钥文件");
+                new AlertWindow($"未找到用户密钥文件").Show();
                 return;
             }
             var aes = new AESUtils();
             var afterAESStr = aes.AesDecrypt(byteFile, key);
             if (string.IsNullOrEmpty(afterAESStr))
             {
-
-                MessageBox.Show("密钥文件解析失败");
+                new AlertWindow($"密钥文件解析失败").Show();
                 return;
             }
             var bl = new BitLockerExecute(_driveNumber[0].ToString());
             if (!bl.Unlock(afterAESStr))
             {
-                MessageBox.Show("密钥文件错误");
+                new AlertWindow($"密钥文件错误").Show();
                 return;
             }
 

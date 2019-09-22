@@ -36,3 +36,5 @@ Z:\DevProject\BitLockerAuto\BitLockerUI\bin\Debug\BitlockerCore.pdb
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.CopyComplete
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.Image.resources
 Z:\DevProject\BitLockerAuto\BitLockerUI\bin\Debug\Resources\icon.ico
+Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\Alert\AlertWindow.g.cs
+Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\Alert\AlertWindow.baml

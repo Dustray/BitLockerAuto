@@ -1,4 +1,5 @@
 ﻿using BitlockerCore;
+using BitLockerUI.Alert;
 using BitLockerUI.Useless;
 using System;
 using System.Collections.Generic;
@@ -44,11 +45,11 @@ namespace BitLockerUI
                 var label = drive.Number;
                 if (drive.IsReady)
                 {
-                    label = $"{drive.Name} ({label})";
+                    label = $"{drive.Name}（{label}）";
                 }
                 else
                 {
-                    label = $"^加密驱动器 ({label})";
+                    label = $"^加密驱动器（{label}）";
                 }
                 driveArray[i] = label;
             }
@@ -57,23 +58,25 @@ namespace BitLockerUI
         }
         private void BtnChangeDriveLockState_Click(object sender, RoutedEventArgs e)
         {
+            var driveNumber = _driveList[cBoxDriveList.SelectedIndex].Number;
             if (_currentLocked)
             {
                 var index = cBoxDriveList.SelectedIndex;
-                var window = new UnlockWindow(OnUnlockWindowClose, _driveList[index].Number);
+                var window = new UnlockWindow(OnUnlockWindowClose, driveNumber);
                 window.ShowDialog();
             }
             else
             {
-                var bl = new BitLockerExecute(_driveList[cBoxDriveList.SelectedIndex].Number[0].ToString());
+                var bl = new BitLockerExecute(driveNumber[0].ToString());
                 if (bl.Lock())
                 {
-                    MessageBox.Show("驱动器已加锁");
+                    new AlertWindow($"驱动器（{driveNumber}）已加锁").Show();
                     InitDriveList(cBoxDriveList.SelectedIndex);
                 }
                 else
                 {
-                    MessageBox.Show("当前驱动器未使用Bitlocker加密");
+                    new AlertWindow($"当前驱动器（{driveNumber}）未使用Bitlocker加密").Show();
+
                 }
             }
         }
@@ -131,5 +134,10 @@ namespace BitLockerUI
             InitDriveList(cBoxDriveList.SelectedIndex);
         }
         #endregion
+
+        private void BtnTest_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
