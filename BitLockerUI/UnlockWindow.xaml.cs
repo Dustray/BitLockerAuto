@@ -26,7 +26,7 @@ namespace BitLockerUI
         private Action _onWindowCloseCallback;
         //private const string key = "ahs75jg8skbjg837dhfi98ujg5f4dpla";
         private const string key = "12345678876543211234567887654abc";
-        public UnlockWindow(Action onWindowCloseCallback,string driveNumber)
+        public UnlockWindow(Action onWindowCloseCallback, string driveNumber)
         {
             InitializeComponent();
             _onWindowCloseCallback = onWindowCloseCallback;
@@ -40,26 +40,36 @@ namespace BitLockerUI
             var byteFile = recoveryFileStream.Read(@".\Data\bitlockerauto.rp");
             if (0 == byteFile.Length)
             {
-                new AlertWindow($"未找到用户密钥文件").Show();
+                btnErrorHint.Content = "未找到用户密钥文件";
+                btnErrorHint.Visibility = Visibility.Visible;
                 return;
             }
             var aes = new AESUtils();
             var afterAESStr = aes.AesDecrypt(byteFile, key);
             if (string.IsNullOrEmpty(afterAESStr))
             {
-                new AlertWindow($"密钥文件解析失败").Show();
+                btnErrorHint.Content = "密钥文件解析失败";
+                btnErrorHint.Visibility = Visibility.Visible;
                 return;
             }
             var bl = new BitLockerExecute(_driveNumber[0].ToString());
             if (!bl.Unlock(afterAESStr))
             {
-                new AlertWindow($"密钥文件错误").Show();
+                btnErrorHint.Content = "密钥文件错误";
+                btnErrorHint.Visibility = Visibility.Visible;
                 return;
             }
 
             // bl.Lock();
             _onWindowCloseCallback();
             Close();
+        }
+
+        private void TboxPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            btnErrorHint.Visibility = Visibility.Hidden;
+            btnSubmit.IsEnabled = tboxPassword.Password.Length >= 4;
+
         }
     }
 }
