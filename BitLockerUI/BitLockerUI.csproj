@@ -71,6 +71,9 @@
       <DependentUpon>AlertWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="BaseWindow.cs" />
+    <Compile Include="CreateEncryptionFileWindow.xaml.cs">
+      <DependentUpon>CreateEncryptionFileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Image.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +86,10 @@
     <Compile Include="Drive\DriveUtil.cs" />
     <Compile Include="Alert\Alert.cs" />
     <Page Include="Alert\AlertWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateEncryptionFileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
