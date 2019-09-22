@@ -26,12 +26,17 @@ namespace BitLockerUI
         private Action _onWindowCloseCallback;
         //private const string key = "ahs75jg8skbjg837dhfi98ujg5f4dpla";
         private const string key = "12345678876543211234567887654abc";
-        public UnlockWindow(Action onWindowCloseCallback, string driveNumber)
+        private bool _simplePassword;
+        public UnlockWindow(Action onWindowCloseCallback, string driveNumber, bool simplePassword = true)
         {
             InitializeComponent();
             _onWindowCloseCallback = onWindowCloseCallback;
             _driveNumber = driveNumber;
             lblDeviceNumber.Content = $"解锁（{ driveNumber}）";
+            _simplePassword = simplePassword;
+            tboxPassword.Visibility = simplePassword ? Visibility.Collapsed : Visibility.Visible;
+            btnSubmit.Visibility = simplePassword ? Visibility.Collapsed : Visibility.Visible;
+            gridSimplePassword.Visibility = !simplePassword ? Visibility.Collapsed : Visibility.Visible;
         }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)

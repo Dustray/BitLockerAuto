@@ -12,14 +12,25 @@
             <RowDefinition Height="0.7*"></RowDefinition>
             <RowDefinition Height="0.4*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="0.4*"></RowDefinition>
-            <RowDefinition Height="1.2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Name="lblDeviceNumber" Content="解锁（Z:）" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left"   Margin="5,0,5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
         <Label  Content="输入密码以解锁" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"   Margin="5,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12"/>
 
-        <PasswordBox Name="tboxPassword" Grid.Row="2" VerticalAlignment="Center" Height="30" Margin="10 0 10 0" BorderThickness="2" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalContentAlignment="Center" PasswordChanged="TboxPassword_PasswordChanged"/>
+        <PasswordBox Name="tboxPassword" Grid.Row="2"  VerticalAlignment="Center" Height="30" Margin="10 0 10 0" BorderThickness="2" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" VerticalContentAlignment="Center" PasswordChanged="TboxPassword_PasswordChanged"/>
+        <Grid Name="gridSimplePassword" Grid.Row="2" VerticalAlignment="Center" Visibility="Hidden" Height="30" Margin="10 0 10 0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Name="lblPassword0" Content="&#x25CF;" Grid.Column="0" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30 " Width="30" HorizontalContentAlignment="Center" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" VerticalContentAlignment="Center" FontSize="10"/>
+            <Label Name="lblPassword1" Content="&#x25CF;" Grid.Column="1" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30 " Width="30" HorizontalContentAlignment="Center" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" VerticalContentAlignment="Center" FontSize="10"/>
+            <Label Name="lblPassword2" Content="&#x25CF;" Grid.Column="2" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30 " Width="30" HorizontalContentAlignment="Center" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" VerticalContentAlignment="Center" FontSize="10"/>
+            <Label Name="lblPassword3" Content="&#x25CF;" Grid.Column="3" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30 " Width="30" HorizontalContentAlignment="Center" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" VerticalContentAlignment="Center" FontSize="10"/>
+        </Grid>
         <Label Name="btnErrorHint" Content="btnErrorHint" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"   Margin="5,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Foreground="#FFC12323" Visibility="Hidden"/>
-        <Button Name="btnSubmit" Content="提 交" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="70" Height="30" Margin="10" BorderThickness="0" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontSize="16" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Click="BtnSubmit_Click" IsEnabled="False" />
+        <Button Name="btnSubmit" Content="提 交" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="70" Height="30" Margin="10" BorderThickness="0" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontSize="16" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Click="BtnSubmit_Click" IsEnabled="False" />
     </Grid>
 </local:BaseWindow>
