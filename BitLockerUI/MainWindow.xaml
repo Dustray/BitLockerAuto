@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitLockerUI"
         mc:Ignorable="d"
-        Title="BitLocker Auto" Height="450" Width="500"  MinHeight="450" MinWidth="500" Icon="pack://siteoforigin:,,,/Resources/icon.ico" KeyDown="BaseWindow_KeyDown">
+        Title="BitLocker Auto" Height="450" Width="500"  MinHeight="450" MinWidth="500" Icon="pack://siteoforigin:,,,/Resources/icon.ico" KeyDown="BaseWindow_KeyDown" MouseWheel="BaseWindow_MouseWheel">
     <Grid>
         <Grid.RowDefinitions >
             <RowDefinition Height="50"></RowDefinition>

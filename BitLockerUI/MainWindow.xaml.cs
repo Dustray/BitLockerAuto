@@ -149,5 +149,19 @@ namespace BitLockerUI
             lblDriveFreeSizeByte.IsEnabled = enable;
             lblDriveFreeSizeGB.IsEnabled = enable;
         }
+
+        private void BaseWindow_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var index = cBoxDriveList.SelectedIndex - e.Delta/120;
+            if (index < 0)
+            {
+                index = _driveList.Count - 1;
+            }
+            else if (index > _driveList.Count - 1)
+            {
+                index = 0;
+            }
+            cBoxDriveList.SelectedIndex = index;
+        }
     }
 }
