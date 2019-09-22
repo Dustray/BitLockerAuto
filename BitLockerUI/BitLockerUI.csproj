@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Alert\AlertWindow.xaml.cs">
+      <DependentUpon>AlertWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BaseWindow.cs" />
     <Compile Include="Image.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -78,6 +81,11 @@
     </Compile>
     <Compile Include="Drive\DriveEtt.cs" />
     <Compile Include="Drive\DriveUtil.cs" />
+    <Compile Include="Alert\Alert.cs" />
+    <Page Include="Alert\AlertWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

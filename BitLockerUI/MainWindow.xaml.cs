@@ -33,7 +33,7 @@ namespace BitLockerUI
         /// <summary>
         /// 初始化驱动器列表
         /// </summary>
-        private void InitDriveList()
+        private void InitDriveList(int index = 0)
         {
             var driveList = new DriveUtil().GetDriveList();
             _driveList = driveList;
@@ -53,7 +53,7 @@ namespace BitLockerUI
                 driveArray[i] = label;
             }
             cBoxDriveList.ItemsSource = driveArray;
-            cBoxDriveList.SelectedIndex = 0;
+            cBoxDriveList.SelectedIndex = index;
         }
         private void BtnChangeDriveLockState_Click(object sender, RoutedEventArgs e)
         {
@@ -66,12 +66,21 @@ namespace BitLockerUI
             else
             {
                 var bl = new BitLockerExecute(_driveList[cBoxDriveList.SelectedIndex].Number[0].ToString());
-                MessageBox.Show(bl.Lock() ? "驱动器已加锁" : "当前驱动器未使用Bitlocker加密");
+                if (bl.Lock())
+                {
+                    MessageBox.Show("驱动器已加锁");
+                    InitDriveList(cBoxDriveList.SelectedIndex);
+                }
+                else
+                {
+                    MessageBox.Show("当前驱动器未使用Bitlocker加密");
+                }
             }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (-1 == cBoxDriveList.SelectedIndex) return;
             var index = cBoxDriveList.SelectedIndex;
             var drive = _driveList[index];
             //加解锁按钮
@@ -86,6 +95,7 @@ namespace BitLockerUI
             lblLockState.Content = drive.IsReady ? "BitLocker未加密或已解锁" : "BitLocker已加锁";
             SetDriveSizeInfo(drive.TotalSize, drive.FreeSize);
             cBoxDriveList.Focusable = false;
+
         }
 
         public void SetDriveSizeInfo(long totalSize, long freeSize)
@@ -118,7 +128,7 @@ namespace BitLockerUI
         #region Callback
         private void OnUnlockWindowClose()
         {
-            cBoxDriveList.SelectedIndex = cBoxDriveList.SelectedIndex;
+            InitDriveList(cBoxDriveList.SelectedIndex);
         }
         #endregion
     }
