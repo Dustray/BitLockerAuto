@@ -10,6 +10,7 @@
         <Grid.RowDefinitions >
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Width="auto"  Background="AliceBlue" Height="auto">
             <Grid.ColumnDefinitions>
@@ -17,7 +18,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="驱动器:" VerticalAlignment="Center" Height="25" Margin="5 0"/>
+            <Label Grid.Column="0" Content="驱动器:" VerticalAlignment="Center" Height="25" Margin="5 0" FontSize="14"/>
             <ComboBox Grid.Column="1" Name="cBoxDriveList" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5 0" Width="200" Height="25" SelectionChanged="ComboBox_SelectionChanged" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" VerticalContentAlignment="Center"  />
             <Button Grid.Column="2" Name="btnChangeDriveLockState" Content="解 锁" Width="60" Margin="5 0" Height="25" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Click="BtnChangeDriveLockState_Click" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
         </Grid>
@@ -28,7 +29,7 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0">
                 <Label Name="lblDriveName"   Content="Windows 10" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" FontSize="20" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                <Label Name="lblDriveNumber"  Content="( C:/ )" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" FontSize="20" />
+                <Label Name="lblDriveNumber"  Content="(C:/)" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" FontSize="20" />
             </StackPanel>
             <Label Name="lblLockState" Content="BitLocker未加密" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
             <Border Grid.Row="1" Margin="20 0" BorderThickness="1" Height="1" VerticalAlignment="Top" BorderBrush="LightGray"/>

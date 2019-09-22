@@ -22,11 +22,13 @@ namespace BitLockerUI
     public partial class UnlockWindow : BaseWindow
     {
         private string _driveNumber;
+        private Action _onWindowCloseCallback;
         //private const string key = "ahs75jg8skbjg837dhfi98ujg5f4dpla";
         private const string key = "12345678876543211234567887654abc";
-        public UnlockWindow(string driveNumber)
+        public UnlockWindow(Action onWindowCloseCallback,string driveNumber)
         {
             InitializeComponent();
+            _onWindowCloseCallback = onWindowCloseCallback;
             _driveNumber = driveNumber;
             lblDeviceNumber.Content = $"解锁（{ driveNumber}）";
         }
@@ -56,6 +58,7 @@ namespace BitLockerUI
             }
 
             // bl.Lock();
+            _onWindowCloseCallback();
             Close();
         }
     }

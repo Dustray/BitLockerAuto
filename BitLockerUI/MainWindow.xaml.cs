@@ -1,4 +1,5 @@
-﻿using BitLockerUI.Useless;
+﻿using BitlockerCore;
+using BitLockerUI.Useless;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace BitLockerUI
     public partial class MainWindow : BaseWindow
     {
         private List<DriveEtt> _driveList;
+        private bool _currentLocked = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -55,21 +57,35 @@ namespace BitLockerUI
         }
         private void BtnChangeDriveLockState_Click(object sender, RoutedEventArgs e)
         {
-            var index = cBoxDriveList.SelectedIndex;
-            var window = new UnlockWindow(_driveList[index].Number);
-            window.ShowDialog();
-
+            if (_currentLocked)
+            {
+                var index = cBoxDriveList.SelectedIndex;
+                var window = new UnlockWindow(OnUnlockWindowClose, _driveList[index].Number);
+                window.ShowDialog();
+            }
+            else
+            {
+                var bl = new BitLockerExecute(_driveList[cBoxDriveList.SelectedIndex].Number[0].ToString());
+                MessageBox.Show(bl.Lock() ? "驱动器已加锁" : "当前驱动器未使用Bitlocker加密");
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var index = cBoxDriveList.SelectedIndex;
             var drive = _driveList[index];
-            btnChangeDriveLockState.IsEnabled = !drive.IsReady;
+            //加解锁按钮
+            //btnChangeDriveLockState.IsEnabled = !drive.IsReady;
+            btnChangeDriveLockState.Content = drive.IsReady ? "加锁" : "解锁";
+            btnChangeDriveLockState.Background = drive.IsReady ? SystemColors.HighlightTextBrush : SystemColors.HighlightBrush;
+            btnChangeDriveLockState.Foreground = drive.IsReady ? SystemColors.HighlightBrush : SystemColors.HighlightTextBrush;
+            _currentLocked = !drive.IsReady;
+            //加解锁按钮
             lblDriveName.Content = string.IsNullOrEmpty(drive.Name) ? "^加密驱动器" : drive.Name;
             lblDriveNumber.Content = $"({drive.Number})";
-            lblLockState.Content = drive.IsReady ? "BitLocker未加密或已解锁" : "BitLocker已加密";
+            lblLockState.Content = drive.IsReady ? "BitLocker未加密或已解锁" : "BitLocker已加锁";
             SetDriveSizeInfo(drive.TotalSize, drive.FreeSize);
+            cBoxDriveList.Focusable = false;
         }
 
         public void SetDriveSizeInfo(long totalSize, long freeSize)
@@ -98,5 +114,12 @@ namespace BitLockerUI
             }
         }
 
+
+        #region Callback
+        private void OnUnlockWindowClose()
+        {
+            cBoxDriveList.SelectedIndex = cBoxDriveList.SelectedIndex;
+        }
+        #endregion
     }
 }

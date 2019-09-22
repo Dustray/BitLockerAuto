@@ -28,9 +28,10 @@ namespace BitlockerCore
             process.StandardInput.AutoFlush = true;
             string output = process.StandardOutput.ReadToEnd();
             string error = process.StandardError.ReadToEnd();
+            bool outPutHasError = output.Contains("错误") ;
             Console.WriteLine("CMD输出> " + output + "\n" + error);
             process.WaitForExit();
-            if (string.IsNullOrEmpty(error))
+            if (string.IsNullOrEmpty(error) && !outPutHasError)
             {
                 return true;
             }
