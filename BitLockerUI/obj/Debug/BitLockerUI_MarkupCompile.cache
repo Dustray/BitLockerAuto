@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\
+H:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\
 BitLockerUI
 none
 false
 DEBUG;TRACE
-Z:\DevProject\BitLockerAuto\BitLockerUI\App.xaml
+H:\DevProject\BitLockerAuto\BitLockerUI\App.xaml
 4614187699
 
 13-1544707147
-161092324499
+162024077907
 Alert\AlertWindow.xaml;CreateEncryptionFileWindow.xaml;MainWindow.xaml;UnlockWindow.xaml;
 
 False

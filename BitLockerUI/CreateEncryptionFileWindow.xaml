@@ -12,7 +12,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Name="lblTitle" Content="正在为C盘生成密钥文件，请确认C盘已启用Bitlocker加密。" Grid.Row="0" VerticalAlignment="Center" FontSize="16" Margin="10 0"/>
+        <TextBlock Name="tblockTitle" Text="正在为C盘生成密钥文件，请确认C盘已启用Bitlocker加密，并填入Bitlocker生成的8组（48位）恢复密钥:" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Center" FontSize="16" Margin="10 0"/>
         <Grid Grid.Row="1" Margin="10 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -49,5 +49,6 @@
             <Label Grid.Column="15" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
             <TextBox Grid.Column="16" Name="tboxCode8" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
+        <Button Name="btnSubmit" Content="生成" Grid.Row="2" Width="80" Height="30" HorizontalAlignment="Right" Margin="0 0 10 0" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
     </Grid>
     </local:BaseWindow>
