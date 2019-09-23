@@ -31,24 +31,22 @@
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Name="tboxCode0" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="0" Name="tboxCode0" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="TboxCode_PreviewTextInput" Tag="0"/>
             <Label Grid.Column="1" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="2" Name="tboxCode1" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="2" Name="tboxCode1" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="TboxCode_PreviewTextInput" Tag="1"/>
             <Label Grid.Column="3" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="4" Name="tboxCode2" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="4" Name="tboxCode2" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="TboxCode_PreviewTextInput" Tag="2"/>
             <Label Grid.Column="5" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="6" Name="tboxCode3" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="6" Name="tboxCode3" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="TboxCode_PreviewTextInput" Tag="3"/>
             <Label Grid.Column="7" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="8" Name="tboxCode4" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="8" Name="tboxCode4" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="TboxCode_PreviewTextInput" Tag="4"/>
             <Label Grid.Column="9" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="10" Name="tboxCode5" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="10" Name="tboxCode5" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="TboxCode_PreviewTextInput" Tag="5"/>
             <Label Grid.Column="11" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="12" Name="tboxCode6" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="12" Name="tboxCode6" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="TboxCode_PreviewTextInput" Tag="6"/>
             <Label Grid.Column="13" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="14" Name="tboxCode7" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Label Grid.Column="15" Content="-" BorderThickness="1" Height="40" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="16" Name="tboxCode8" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="14" Name="tboxCode7" MaxLength="6" BorderThickness="1" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="TboxCode_PreviewTextInput" Tag="7"/>
         </Grid>
         <Button Name="btnSubmit" Content="生成" Grid.Row="2" Width="80" Height="30" HorizontalAlignment="Right" Margin="0 0 10 0" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
     </Grid>
-    </local:BaseWindow>
+</local:BaseWindow>

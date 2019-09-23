@@ -23,5 +23,10 @@ namespace BitLockerUI
         {
             InitializeComponent();
         }
+
+        private void TboxCode_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
     }
 }
