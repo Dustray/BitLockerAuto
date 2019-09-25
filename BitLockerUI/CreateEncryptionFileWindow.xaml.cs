@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BitlockerCore;
+using BitlockerCore.Encryptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,15 +24,16 @@ namespace BitLockerUI
         private int[] _simplePassWord = new int[8];
         private TextBox[] _textBoxes;
         private int _currentIndex = 0;
-        public CreateEncryptionFileWindow()
+        private string _name = "";
+        public CreateEncryptionFileWindow(string name)
         {
             InitializeComponent();
             _textBoxes = new TextBox[8] { tboxCode0, tboxCode1, tboxCode2, tboxCode3, tboxCode4, tboxCode5, tboxCode6, tboxCode7};
             foreach(var tb in _textBoxes)
             {
-
                 System.Windows.Input.InputMethod.SetIsInputMethodEnabled(tb, false);
             }
+            _name = name;
         }
 
         private void TboxCode_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -74,7 +77,23 @@ namespace BitLockerUI
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            CheckNumber();
+            if (CheckNumber())
+            {
+                var list = new List<string>();
+                foreach (var tb in _textBoxes)
+                {
+                    list.Add(tb.Text);
+                }
+                string RecoveryPassword = string.Join("-", list.ToArray());
+                var bytes = Encoding.UTF8.GetBytes(RecoveryPassword);
+                string str2 = Encoding.UTF8.GetString(bytes);
+
+                var key = "12345678876543211234567887654abc";
+                var aes = new AESUtils();
+                var afterAESStr = aes.AesEncrypt(RecoveryPassword, key);
+                var recoveryFileStream = new RecoveryFileStream();
+                recoveryFileStream.Write(@"J:\bitlockerauto.rp", afterAESStr);
+            }
         }
 
         private void TboxCode_KeyDown(object sender, KeyEventArgs e)
