@@ -41,7 +41,6 @@ H:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.CopyComplet
 H:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.exe
 H:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.pdb
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csprojAssemblyReference.cache
-Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\Alert\AlertWindow.g.cs
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\CreateEncryptionFileWindow.g.cs
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\MainWindow.g.cs
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\UnlockWindow.g.cs
@@ -55,7 +54,6 @@ Z:\DevProject\BitLockerAuto\BitLockerUI\bin\Debug\BitLockerUI.exe
 Z:\DevProject\BitLockerAuto\BitLockerUI\bin\Debug\BitLockerUI.pdb
 Z:\DevProject\BitLockerAuto\BitLockerUI\bin\Debug\BitlockerCore.dll
 Z:\DevProject\BitLockerAuto\BitLockerUI\bin\Debug\BitlockerCore.pdb
-Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\Alert\AlertWindow.baml
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\CreateEncryptionFileWindow.baml
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\MainWindow.baml
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\UnlockWindow.baml
@@ -66,3 +64,5 @@ Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.GenerateRes
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.csproj.CopyComplete
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.exe
 Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\BitLockerUI.pdb
+Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\Utils\Alert\AlertWindow.g.cs
+Z:\DevProject\BitLockerAuto\BitLockerUI\obj\Debug\Utils\Alert\AlertWindow.baml

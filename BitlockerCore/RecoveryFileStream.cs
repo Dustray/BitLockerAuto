@@ -29,7 +29,22 @@ namespace BitlockerCore
             }
             return true;
         }
-
+        public bool Write(string pathOnly,string fileName, byte[] content)
+        {
+            try
+            {
+                if (!Directory.Exists(pathOnly))
+                {
+                    Directory.CreateDirectory(pathOnly);
+                }
+                return Write(pathOnly + fileName, content);
+            }
+            catch (IOException e)
+            {
+                return false;
+            }
+            return true;
+        }
         public byte[] Read(string path)
         {
             try

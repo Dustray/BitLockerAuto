@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
-namespace BitLockerUI.Alert
+namespace BitLockerUI.Utils
 {
     /// <summary>
     /// AlertWindow.xaml 的交互逻辑

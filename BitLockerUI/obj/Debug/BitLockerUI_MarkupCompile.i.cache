@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 Z:\DevProject\BitLockerAuto\BitLockerUI\App.xaml
-4614187699
+4-1111217098
 
-151532034837
+15876879438
 161092324499
-Alert\AlertWindow.xaml;CreateEncryptionFileWindow.xaml;MainWindow.xaml;UnlockWindow.xaml;
+Utils\Alert\AlertWindow.xaml;CreateEncryptionFileWindow.xaml;MainWindow.xaml;UnlockWindow.xaml;
 
-False
+True
 

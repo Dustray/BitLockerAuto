@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BitLockerUI.Useless
+namespace BitLockerUI.Utils
 {
     public class DriveEtt
     {

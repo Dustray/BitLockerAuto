@@ -85,7 +85,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Alert\AlertWindow.xaml.cs">
+    <Compile Include="Utils\Alert\AlertWindow.xaml.cs">
       <DependentUpon>AlertWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="BaseWindow.cs" />
@@ -100,11 +100,11 @@
     <Compile Include="UnlockWindow.xaml.cs">
       <DependentUpon>UnlockWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Drive\DriveEtt.cs" />
-    <Compile Include="Drive\DriveUtil.cs" />
-    <Compile Include="Alert\Alert.cs" />
+    <Compile Include="Utils\ConfigFile\XMLOperation.cs" />
+    <Compile Include="Utils\Drive\DriveEtt.cs" />
+    <Compile Include="Utils\Drive\DriveUtil.cs" />
     <Compile Include="Utils\ClipBoardUtil.cs" />
-    <Page Include="Alert\AlertWindow.xaml">
+    <Page Include="Utils\Alert\AlertWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,9 +160,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ConfigFile\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BitlockerCore\BitlockerCore.csproj">
       <Project>{ab635ca2-2305-46e6-8aac-1fab7ebc113d}</Project>

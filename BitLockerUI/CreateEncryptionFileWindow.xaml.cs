@@ -1,20 +1,12 @@
 ﻿using BitlockerCore;
 using BitlockerCore.Encryptions;
-using BitLockerUI.Alert;
 using BitLockerUI.Utils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BitLockerUI
 {
@@ -94,7 +86,7 @@ namespace BitLockerUI
                 var aes = new AESUtils();
                 var afterAESStr = aes.AesEncrypt(RecoveryPassword, key);
                 var recoveryFileStream = new RecoveryFileStream();
-                var result = recoveryFileStream.Write($@"J:\bla_{_driveName}.rp", afterAESStr);
+                var result = recoveryFileStream.Write(@".\Data\",$"bla_{_driveName}.rp", afterAESStr);
                 if (result)
                 {
                     new AlertWindow("创建密钥文件成功！").Show();
