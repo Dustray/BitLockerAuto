@@ -8,3 +8,12 @@ C:\Users\mycomputer\source\repos\BitLockerAuto\BitlockerTest\obj\Debug\Bitlocker
 C:\Users\mycomputer\source\repos\BitLockerAuto\BitlockerTest\obj\Debug\BitlockerTest.csproj.CopyComplete
 C:\Users\mycomputer\source\repos\BitLockerAuto\BitlockerTest\obj\Debug\BitlockerTest.exe
 C:\Users\mycomputer\source\repos\BitLockerAuto\BitlockerTest\obj\Debug\BitlockerTest.pdb
+Z:\DevProject\BitLockerAuto\BitlockerTest\bin\Debug\BitlockerTest.exe.config
+Z:\DevProject\BitLockerAuto\BitlockerTest\bin\Debug\BitlockerTest.exe
+Z:\DevProject\BitLockerAuto\BitlockerTest\bin\Debug\BitlockerTest.pdb
+Z:\DevProject\BitLockerAuto\BitlockerTest\bin\Debug\BitlockerCore.dll
+Z:\DevProject\BitLockerAuto\BitlockerTest\bin\Debug\BitlockerCore.pdb
+Z:\DevProject\BitLockerAuto\BitlockerTest\obj\Debug\BitlockerTest.csprojAssemblyReference.cache
+Z:\DevProject\BitLockerAuto\BitlockerTest\obj\Debug\BitlockerTest.csproj.CopyComplete
+Z:\DevProject\BitLockerAuto\BitlockerTest\obj\Debug\BitlockerTest.exe
+Z:\DevProject\BitLockerAuto\BitlockerTest\obj\Debug\BitlockerTest.pdb

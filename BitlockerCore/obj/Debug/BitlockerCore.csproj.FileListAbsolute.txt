@@ -6,6 +6,5 @@ C:\Users\mycomputer\source\repos\BitLockerAuto\BitlockerCore\obj\Debug\Bitlocker
 C:\Users\mycomputer\source\repos\BitLockerAuto\BitlockerCore\obj\Debug\BitlockerCore.csprojAssemblyReference.cache
 Z:\DevProject\BitLockerAuto\BitlockerCore\bin\Debug\BitlockerCore.dll
 Z:\DevProject\BitLockerAuto\BitlockerCore\bin\Debug\BitlockerCore.pdb
-Z:\DevProject\BitLockerAuto\BitlockerCore\obj\Debug\BitlockerCore.csproj.CoreCompileInputs.cache
 Z:\DevProject\BitLockerAuto\BitlockerCore\obj\Debug\BitlockerCore.dll
 Z:\DevProject\BitLockerAuto\BitlockerCore\obj\Debug\BitlockerCore.pdb

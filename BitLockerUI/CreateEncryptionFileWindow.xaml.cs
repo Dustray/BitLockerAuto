@@ -1,5 +1,7 @@
 ﻿using BitlockerCore;
 using BitlockerCore.Encryptions;
+using BitLockerUI.Alert;
+using BitLockerUI.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +26,8 @@ namespace BitLockerUI
         private int[] _simplePassWord = new int[8];
         private TextBox[] _textBoxes;
         private int _currentIndex = 0;
-        private string _name = "";
-        public CreateEncryptionFileWindow(string name)
+        private string _driveName = "";
+        public CreateEncryptionFileWindow(string driveName)
         {
             InitializeComponent();
             _textBoxes = new TextBox[8] { tboxCode0, tboxCode1, tboxCode2, tboxCode3, tboxCode4, tboxCode5, tboxCode6, tboxCode7};
@@ -33,7 +35,7 @@ namespace BitLockerUI
             {
                 System.Windows.Input.InputMethod.SetIsInputMethodEnabled(tb, false);
             }
-            _name = name;
+            _driveName = driveName;
         }
 
         private void TboxCode_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -92,22 +94,66 @@ namespace BitLockerUI
                 var aes = new AESUtils();
                 var afterAESStr = aes.AesEncrypt(RecoveryPassword, key);
                 var recoveryFileStream = new RecoveryFileStream();
-                recoveryFileStream.Write(@"J:\bitlockerauto.rp", afterAESStr);
+                var result = recoveryFileStream.Write($@"J:\bla_{_driveName}.rp", afterAESStr);
+                if (result)
+                {
+                    new AlertWindow("创建密钥文件成功！").Show();
+                }
+                else
+                {
+                    new AlertWindow("创建密钥文件失败！").Show();
+                }
             }
         }
 
         private void TboxCode_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.Key)
+            if (e.Key == Key.Back)
             {
-                case Key.Back:
-                    var tb = _textBoxes[_currentIndex];
-                    if (string.IsNullOrEmpty(tb.Text)&& _currentIndex>0)
-                    {
-                        _textBoxes[--_currentIndex].Focus();
-                    }
-                    break;
+                var tb = _textBoxes[_currentIndex];
+                if (string.IsNullOrEmpty(tb.Text) && _currentIndex > 0)
+                {
+                    _textBoxes[--_currentIndex].Focus();
+                }
             }
+            else if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.V)
+            {
+                //同时按下了Ctrl + H键（H要最后按，因为判断了此次事件的e.Key）
+                //修饰键只能按下Ctrl，如果还同时按下了其他修饰键，则不会进入
+                var clipStr = new ClipBoardUtil().GetString();
+                AnalyseCodeStr(clipStr);
+            }
+        }
+        
+        private bool AnalyseCodeStr(string str)
+        {
+            str = str.Replace(" ", "");
+            var strArray = str.Split('-');
+            if (strArray.Length <= 1)
+            {
+                return false;
+            }
+            for(int i = 0,j=_currentIndex; i < strArray.Length&&j< _textBoxes.Length; i++,j++)
+            {
+                var ele = strArray[i];
+                if(int.TryParse(ele, out int a))
+                {
+                    if (ele.Length <= 6)
+                    {
+                        _textBoxes[j].Text = ele;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            return true;
         }
     }
 }
