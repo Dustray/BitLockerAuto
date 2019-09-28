@@ -85,6 +85,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SetPasswordWindow.xaml.cs">
+      <DependentUpon>SetPasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Alert\AlertWindow.xaml.cs">
       <DependentUpon>AlertWindow.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
     <Compile Include="Utils\Drive\DriveEtt.cs" />
     <Compile Include="Utils\Drive\DriveUtil.cs" />
     <Compile Include="Utils\ClipBoardUtil.cs" />
+    <Page Include="SetPasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Utils\Alert\AlertWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

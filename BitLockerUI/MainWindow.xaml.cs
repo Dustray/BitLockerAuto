@@ -159,7 +159,12 @@ namespace BitLockerUI
 
         private void BtnLock_Click(object sender, RoutedEventArgs e)
         {
-            new CreateEncryptionFileWindow(_driveList[cBoxDriveList.SelectedIndex].Name).Show();
+            new CreateEncryptionFileWindow(_driveList[cBoxDriveList.SelectedIndex].Name).ShowDialog();
+        }
+
+        private void btnSetPassword_Click(object sender, RoutedEventArgs e)
+        {
+            new SetPasswordWindow().ShowDialog();
         }
     }
 }

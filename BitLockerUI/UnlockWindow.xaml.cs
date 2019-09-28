@@ -1,5 +1,6 @@
-﻿using BitlockerCore;
+﻿    using BitlockerCore;
 using BitlockerCore.Encryptions;
+using BitLockerUI.Utils;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,7 +16,7 @@ namespace BitLockerUI
         private string _driveNumber;
         private Action _onWindowCloseCallback;
         //private const string key = "ahs75jg8skbjg837dhfi98ujg5f4dpla";
-        private const string key = "12345678876543211234567887654abc";
+        private  string _key = "12345678876543211234567887654abc";
         private bool _isSimplePassword;
         private int[] _simplePassWord = new int[4];
         private PasswordBox[] _passwordBoxes  ;
@@ -23,6 +24,7 @@ namespace BitLockerUI
         public UnlockWindow(Action onWindowCloseCallback, string driveNumber, bool simplePassword = true)
         {
             InitializeComponent();
+            _key = new AppConfigOperation().Read("AppSecret");
             _onWindowCloseCallback = onWindowCloseCallback;
             _driveNumber = driveNumber;
             lblDeviceNumber.Content = $"解锁（{ driveNumber}）";
@@ -54,7 +56,7 @@ namespace BitLockerUI
                 return;
             }
             var aes = new AESUtils();
-            var afterAESStr = aes.AesDecrypt(byteFile, key);
+            var afterAESStr = aes.AesDecrypt(byteFile, _key);
             if (string.IsNullOrEmpty(afterAESStr))
             {
                 btnErrorHint.Content = "密钥文件解析失败";

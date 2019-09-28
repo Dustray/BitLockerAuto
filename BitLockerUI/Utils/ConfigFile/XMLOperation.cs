@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace BitLockerUI.Utils.ConfigFile
+namespace BitLockerUI.Utils
 {
     public class XMLOperation
     {
@@ -30,16 +30,17 @@ namespace BitLockerUI.Utils.ConfigFile
         public void CreateNewFile()
         {
             var rootNode = _xml.CreateElement("root");
-            
             var userNode = _xml.CreateElement("user");
             rootNode.AppendChild(userNode);
 
             var currentdrivenameNode = _xml.CreateElement("currentdrivename");
             var lastdrivenumNode = _xml.CreateElement("lastdrivenum");
+            var lastfileNode = _xml.CreateElement("lastfile");
             var scretpasswordNode = _xml.CreateElement("scretpassword");
             var unlockpasswordNode = _xml.CreateElement("unlockpassword");
             userNode.AppendChild(currentdrivenameNode);
             userNode.AppendChild(lastdrivenumNode);
+            userNode.AppendChild(lastfileNode);
             userNode.AppendChild(scretpasswordNode);
             userNode.AppendChild(unlockpasswordNode);
             _xml.Save(path);
@@ -51,6 +52,10 @@ namespace BitLockerUI.Utils.ConfigFile
         /// <returns></returns>
         public string GetNodeValue(string nodeLevel)
         {
+            if (!File.Exists(path))
+            {
+                return null;
+            }
             //string result = "";
             XmlNode root = _xml.SelectSingleNode(nodeLevel);//   /root/user
             //XmlNodeList childlist = root.ChildNodes;

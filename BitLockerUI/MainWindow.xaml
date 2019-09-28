@@ -9,8 +9,9 @@
     <Grid>
         <Grid.RowDefinitions >
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Width="auto"  Background="AliceBlue" Height="auto">
             <Grid.Effect>
@@ -77,6 +78,12 @@
                 <ProgressBar Name="pbarDriveSize" Grid.Row="3" Grid.ColumnSpan="4" Margin="20 0" Height="15" Value="53" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
             </Grid>
         </Grid>
-            <Button Grid.Row="3" Name="btnTest" Width="70" Height="30" Content="test" Click="BtnTest_Click"/>
+        <Button Grid.Row="2" Name="btnTest" Width="70" Height="30" Content="test" Click="BtnTest_Click"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Background="AliceBlue">
+            <StackPanel.Effect>
+                <DropShadowEffect BlurRadius="10" Color="#FFACACAC" Direction="270" ShadowDepth="1"/>
+            </StackPanel.Effect>
+            <Button Name="btnSetPassword" Content="&#xE1F6;" Width="40" FontFamily="Segoe MDL2 Assets" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnSetPassword_Click"/>
+        </StackPanel>
     </Grid>
 </local:BaseWindow>

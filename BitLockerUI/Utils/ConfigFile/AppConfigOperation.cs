@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BitLockerUI.Utils.ConfigFile
+namespace BitLockerUI.Utils
 {
     class AppConfigOperation
     {

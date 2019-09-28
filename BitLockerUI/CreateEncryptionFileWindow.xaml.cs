@@ -25,11 +25,11 @@ namespace BitLockerUI
             _textBoxes = new TextBox[8] { tboxCode0, tboxCode1, tboxCode2, tboxCode3, tboxCode4, tboxCode5, tboxCode6, tboxCode7};
             foreach(var tb in _textBoxes)
             {
-                System.Windows.Input.InputMethod.SetIsInputMethodEnabled(tb, false);
+                InputMethod.SetIsInputMethodEnabled(tb, false);
             }
             _driveName = driveName;
         }
-
+        #region 成员控制
         private void TboxCode_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var tb = sender as TextBox;
@@ -147,5 +147,8 @@ namespace BitLockerUI
             }
             return true;
         }
+        #endregion
+
+
     }
 }
