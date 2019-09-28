@@ -100,6 +100,7 @@
     <Compile Include="UnlockWindow.xaml.cs">
       <DependentUpon>UnlockWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ConfigFile\AppConfigOperation.cs" />
     <Compile Include="Utils\ConfigFile\XMLOperation.cs" />
     <Compile Include="Utils\Drive\DriveEtt.cs" />
     <Compile Include="Utils\Drive\DriveUtil.cs" />
