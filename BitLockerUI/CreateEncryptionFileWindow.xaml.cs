@@ -83,7 +83,7 @@ namespace BitLockerUI
                 string str2 = Encoding.UTF8.GetString(bytes);
 
                 var key = "12345678876543211234567887654abc";
-                var aes = new AESUtils();
+                var aes = new AESUtil();
                 var afterAESStr = aes.AesEncrypt(RecoveryPassword, key);
                 var recoveryFileStream = new RecoveryFileStream();
                 var result = recoveryFileStream.Write(@".\Data\",$"bla_{_driveName}.rp", afterAESStr);

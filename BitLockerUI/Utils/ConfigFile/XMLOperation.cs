@@ -10,11 +10,15 @@ namespace BitLockerUI.Utils
 {
     public class XMLOperation
     {
-        private const string path= "userConfig.xml";
+        private const string path= @"Data\userConfig.xml";
         private XmlDocument _xml;
         public XMLOperation()
         {
             _xml = new XmlDocument();
+            if (File.Exists(path))
+            {
+                _xml.Load(path);
+            }
         }
         //<root>
         //    <user>
@@ -29,14 +33,19 @@ namespace BitLockerUI.Utils
         /// </summary>
         public void CreateNewFile()
         {
+            XmlDeclaration xmldecl;
+            xmldecl = _xml.CreateXmlDeclaration("1.0", "utf-8", null);
+            _xml.AppendChild(xmldecl);
+
             var rootNode = _xml.CreateElement("root");
+            _xml.AppendChild(rootNode);
             var userNode = _xml.CreateElement("user");
             rootNode.AppendChild(userNode);
 
             var currentdrivenameNode = _xml.CreateElement("currentdrivename");
             var lastdrivenumNode = _xml.CreateElement("lastdrivenum");
             var lastfileNode = _xml.CreateElement("lastfile");
-            var scretpasswordNode = _xml.CreateElement("scretpassword");
+            var scretpasswordNode = _xml.CreateElement("secretpassword");
             var unlockpasswordNode = _xml.CreateElement("unlockpassword");
             userNode.AppendChild(currentdrivenameNode);
             userNode.AppendChild(lastdrivenumNode);
@@ -67,15 +76,26 @@ namespace BitLockerUI.Utils
         /// </summary>
         /// <param name="nodeLevel"></param>
         /// <param name="value"></param>
-        public void SetNodeValue(string nodeLevel,string value)
+        public bool SetNodeValue(string nodeLevel,string value)
         {
-            if (!File.Exists(path))
+            try
             {
-                CreateNewFile();
+                if (!File.Exists(path))
+                {
+                    CreateNewFile();
+                }
+                XmlNode root = _xml.SelectSingleNode(nodeLevel);//   /root/user
+                if (null == root)
+                    return false;
+                //XmlNodeList childlist = root.ChildNodes;
+                root.InnerText = value;
+                _xml.Save(path);
             }
-            XmlNode root = _xml.SelectSingleNode(nodeLevel);//   /root/user
-            //XmlNodeList childlist = root.ChildNodes;
-            root.InnerText=value;
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
     }

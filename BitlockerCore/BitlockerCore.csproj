@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="BitLockerExecute.cs" />
     <Compile Include="CMDUtils.cs" />
-    <Compile Include="Encryptions\AESUtils.cs" />
+    <Compile Include="Encryptions\AESUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecoveryFileStream.cs" />
   </ItemGroup>

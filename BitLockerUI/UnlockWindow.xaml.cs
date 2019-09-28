@@ -55,7 +55,7 @@ namespace BitLockerUI
                 ClearSimplePassword();
                 return;
             }
-            var aes = new AESUtils();
+            var aes = new AESUtil();
             var afterAESStr = aes.AesDecrypt(byteFile, _key);
             if (string.IsNullOrEmpty(afterAESStr))
             {

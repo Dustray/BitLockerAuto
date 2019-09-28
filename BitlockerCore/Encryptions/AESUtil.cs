@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BitlockerCore.Encryptions
 {
-    public class AESUtils
+    public class AESUtil
     {
         /// <summary>
         ///  AES 加密
         /// </summary>
         /// <param name="str">明文（待加密）</param>
-        /// <param name="key">密文</param>
+        /// <param name="key">密钥</param>
         /// <returns></returns>
         public byte[] AesEncrypt(string str, string key)
         {
@@ -28,7 +28,7 @@ namespace BitlockerCore.Encryptions
             };
 
             ICryptoTransform cTransform = rm.CreateEncryptor();
-            Byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
             return resultArray;
         }
 
@@ -36,7 +36,7 @@ namespace BitlockerCore.Encryptions
         ///  AES 解密
         /// </summary>
         /// <param name="toEncryptArray">明文（待解密）</param>
-        /// <param name="key">密文</param>
+        /// <param name="key">密钥</param>
         /// <returns></returns>
         public string AesDecrypt(byte[] toEncryptArray, string key)
         {

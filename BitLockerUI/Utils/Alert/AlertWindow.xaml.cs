@@ -20,9 +20,12 @@ namespace BitLockerUI.Utils
         private Timer timer;
         private int _timerTount = 0;
         public int _timerSeconds = 3000;
+
         public AlertWindow(string content)
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;
+            
             tBlockAlertContent.Text = content;
         }
         public void SetBtn1Click(string btnText, Action onBtn1ClickCallback)

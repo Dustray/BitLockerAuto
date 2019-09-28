@@ -27,7 +27,7 @@ namespace BitlockerTest
             var bytes = Encoding.UTF8.GetBytes(RecoveryPassword);
             string str2 = Encoding.UTF8.GetString(bytes);
 
-            var aes = new AESUtils();
+            var aes = new AESUtil();
             var afterAESStr = aes.AesEncrypt(RecoveryPassword, key);
             var recoveryFileStream = new RecoveryFileStream();
             recoveryFileStream.Write(@"J:\bitlockerauto.rp", afterAESStr);
@@ -38,7 +38,7 @@ namespace BitlockerTest
             var byteFile = recoveryFileStream.Read(@"J:\bitlockerauto.rp");
             //var bytes = Encoding.UTF8.GetBytes(byteFile);
             //var str2 = Encoding.UTF8.GetString(bytes);
-            var aes = new AESUtils();
+            var aes = new AESUtil();
             var afterAESStr = aes.AesDecrypt(byteFile, key);
 
             Console.WriteLine("解密：" + afterAESStr);

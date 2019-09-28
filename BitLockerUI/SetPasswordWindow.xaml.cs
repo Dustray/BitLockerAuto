@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BitlockerCore.Encryptions;
+using BitLockerUI.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -89,6 +91,32 @@ namespace BitLockerUI
             }
 
             return false;
+        }
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            SavePassword();
+        }
+        #endregion
+        #region 数据操作
+        private void SavePassword()
+        {
+            string password= pboxPassword1.Password;
+            string secretCode = new AppConfigOperation().Read("AppSecret");
+            var aesUtil = new AESUtil();
+            var byteDatas = aesUtil.AesEncrypt(password, secretCode);
+            var strData = Encoding.UTF8.GetString(byteDatas);
+            var xml = new XMLOperation();
+            if(xml.SetNodeValue("/root/user/unlockpassword", strData))
+                {
+                new AlertWindow("设置密码成功！").Show();
+                Close();
+            }
+            else
+            {
+
+                new AlertWindow("设置密码失败！").Show();
+            }
+
         }
         #endregion
     }
