@@ -18,8 +18,9 @@ namespace BitLockerUI
         private int[] _simplePassWord = new int[8];
         private TextBox[] _textBoxes;
         private int _currentIndex = 0;
+        private string _driveNumber="";
         private string _driveName = "";
-        public CreateEncryptionFileWindow(string driveName)
+        public CreateEncryptionFileWindow(string driveNumber, string driveName)
         {
             InitializeComponent();
             _textBoxes = new TextBox[8] { tboxCode0, tboxCode1, tboxCode2, tboxCode3, tboxCode4, tboxCode5, tboxCode6, tboxCode7};
@@ -27,7 +28,9 @@ namespace BitLockerUI
             {
                 InputMethod.SetIsInputMethodEnabled(tb, false);
             }
+            _driveNumber = driveNumber;
             _driveName = driveName;
+            tblockTitle.Text = $"正在为{_driveNumber[0]}盘生成密钥文件，请确认{_driveNumber[0]}盘已启用Bitlocker加密，并填入Bitlocker生成的8组（48位）恢复密钥:";
         }
         #region 成员控制
         private void TboxCode_PreviewTextInput(object sender, TextCompositionEventArgs e)

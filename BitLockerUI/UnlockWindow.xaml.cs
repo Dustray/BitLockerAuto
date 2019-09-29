@@ -14,6 +14,7 @@ namespace BitLockerUI
     public partial class UnlockWindow : BaseWindow
     {
         private string _driveNumber;
+        private string _driveName;
         private Action _onWindowCloseCallback;
         //private const string key = "ahs75jg8skbjg837dhfi98ujg5f4dpla";
         private  string _key = "12345678876543211234567887654abc";
@@ -21,12 +22,13 @@ namespace BitLockerUI
         private int[] _simplePassWord = new int[4];
         private PasswordBox[] _passwordBoxes  ;
         private int _simplePassWordIndex=0;
-        public UnlockWindow(Action onWindowCloseCallback, string driveNumber, bool simplePassword = true)
+        public UnlockWindow(Action onWindowCloseCallback, string driveNumber,string driveName, bool simplePassword = true)
         {
             InitializeComponent();
             _key = new AppConfigOperation().Read("AppSecret");
             _onWindowCloseCallback = onWindowCloseCallback;
             _driveNumber = driveNumber;
+            _driveName = driveName;
             lblDeviceNumber.Content = $"解锁（{ driveNumber}）";
             _isSimplePassword = simplePassword;
             tboxPassword.Visibility = simplePassword ? Visibility.Collapsed : Visibility.Visible;
@@ -47,7 +49,12 @@ namespace BitLockerUI
         private void Submit()
         {
             var recoveryFileStream = new RecoveryFileStream();
-            var byteFile = recoveryFileStream.Read(@".\Data\bitlockerauto.rp");
+            if (string.IsNullOrEmpty(_driveName))//判断当前选中磁盘名
+            {
+                var xml =new XMLOperation();
+                _driveName = xml.GetNodeValue("/root/user/currentdrivename");
+            }
+            var byteFile = recoveryFileStream.Read($@".\Data\bla_{_driveName}.rp");
             if (0 == byteFile.Length)
             {
                 btnErrorHint.Content = "未找到用户密钥文件";

@@ -50,10 +50,11 @@ namespace BitLockerUI
         private void BtnChangeDriveLockState_Click(object sender, RoutedEventArgs e)
         {
             var driveNumber = _driveList[cBoxDriveList.SelectedIndex].Number;
+            var driveName = _driveList[cBoxDriveList.SelectedIndex].Name;
             if (_currentLocked)
             {
                 var index = cBoxDriveList.SelectedIndex;
-                var window = new UnlockWindow(OnUnlockWindowClose, driveNumber);
+                var window = new UnlockWindow(OnUnlockWindowClose, driveNumber, driveName);
                 window.ShowDialog();
             }
             else
@@ -159,7 +160,8 @@ namespace BitLockerUI
 
         private void BtnLock_Click(object sender, RoutedEventArgs e)
         {
-            new CreateEncryptionFileWindow(_driveList[cBoxDriveList.SelectedIndex].Name).ShowDialog();
+            var drive = _driveList[cBoxDriveList.SelectedIndex];
+            new CreateEncryptionFileWindow(drive.Number, drive.Name).ShowDialog();
         }
 
         private void btnSetPassword_Click(object sender, RoutedEventArgs e)

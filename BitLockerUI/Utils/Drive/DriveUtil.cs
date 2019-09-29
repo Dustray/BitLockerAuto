@@ -20,7 +20,7 @@ namespace BitLockerUI.Utils
                 d.IsReady=drive.IsReady;
                 if (drive.IsReady)
                 {
-                    d.Name = drive.VolumeLabel;
+                    d.Name = string.IsNullOrEmpty(drive.VolumeLabel)?"本地磁盘": drive.VolumeLabel;
                     d.TotalSize = drive.TotalSize;
                     d.FreeSize = drive.AvailableFreeSpace;
                 }
